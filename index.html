@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <link rel="icon" href="./assets/images/smiley.png" type="image/png" sizes="16x16">
+
+  <title>Train Scheduler </title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+  <!-- Custom styles for this template -->
+  <link href="./assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="container border border-primary bg-dark rounded">
+    <div class="row b-2">
+      <div class="col-12">
+        <div class="card bg-info m-2">
+          <div class="card-body text-center">
+            <h2>NJ Transit Train Scheduler</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- data entry form -->
+
+    <div class="row">
+      <div class="col-12">
+        <div class="card bg-light m-1">
+          <h6 class="card-header bg-primary text-white">
+            Current train schedule
+          </h6>
+
+          <div class="card  m-1">
+            <div class="card-body ">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Train name</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Frequency (min)</th>
+                    <th scope="col">Next Arrival</th>
+                    <th scope="col">Minutes Away</th>
+                  </tr>
+                </thead>
+                <tbody id="train-list">
+                  <tr>
+                    <th>1</th>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <th>1</th>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- data entry form -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card bg-light m-1">
+          <h6 class="card-header bg-primary text-white">
+            Add Train
+          </h6>
+          <div class="card-body text-left">
+
+            <form>
+              <div class="form-group row">
+                <label for="input-name" class="col-2 col-form-label text-right">Train Name</label>
+                <input class="col-9 rounded" type="text" id="input-name" placeholder="Enter train name">
+                <!-- <small id="emailHelp" class="form-text text-muted">Train Name</small> -->
+              </div>
+              <div class="form-group row">
+                <label for="input-destination" class="col-2 col-form-label  text-right">Destination</label>
+                <input class="col-9 rounded" type="text" id="input-destination" placeholder="Enter Destination">
+              </div>
+              <div class="form-group row">
+                <label for="input-time" class="col-2 col-form-label  text-right">First Train Time</label>
+                <input class="col-9 rounded" type="text" id="input-time" placeholder="Enter First Train Time -- in military time">
+              </div>
+              <div class="form-group row">
+                <label for="input-frequency" class="col-2 col-form-label  text-right">Frequency</label>
+                <input class="col-9 rounded" type="text" id="input-frequency" placeholder="Enter Frequency -- in minutes">
+              </div>
+              <!-- <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                  </div> -->
+              <button id="submit-btn" class="btn btn-primary">Submit</button>
+              <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- END data entry form -->
+
+
+
+  </div>
+  <!-- end container -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script src="./assets/scripts/firebase.js"></script>
+</body>
+
+</html>

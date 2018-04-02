@@ -1,0 +1,40 @@
+body {
+  background: url("../images/lightpaperfibers.png") repeat;
+  max-width: 960px;
+  justify-content: center;
+  margin: auto;
+  font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  font-size: 2.25rem;
+}
+.text-dark {
+  color: #343a40!important;
+}
+.blog-header {
+  line-height: 1;
+  border-bottom: 1px solid #e5e5e5;
+}
+.pb-3, .py-3 {
+  padding-bottom: 1rem!important;
+}
+
+.pt-3, .py-3 {
+  padding-top: 1rem!important;
+}
