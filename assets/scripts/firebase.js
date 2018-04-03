@@ -148,15 +148,15 @@
         e.text(train.id);
         e = $("#" + train.id + "-name");
         e.text(train.name);
-        e = $("#" + +train.id + "-station");
+        e = $("#" + train.id + "-station");
         e.text(train.station);
-        e = $("#" + +train.id + "-destination");
+        e = $("#" + train.id + "-destination");
         e.text(train.destination);
-        e = $("#" + +train.id + "-arrival_time");
-        e.text(train.arrival_time);
-        e = $("#" + +train.id + "-frequency");
+        e = $("#" + train.id + "-frequency");
         e.text(train.frequency);
-        e = $("#" + train.id + "-min_remain");
+        e = $("#" + train.id + "-arrival-time");
+        e.text(train.arrival_time);
+        e = $("#" + train.id + "-min-remain");
         e.text(train.min_remain);
       }
 
