@@ -10,18 +10,43 @@
       firebase.initializeApp(config);
 
       ctime();
-      setInterval(ctime, 1000*10);
+      setInterval(updateTime, 1000 * 6);
+
+      function updateTime() {
+        ctime();
+
+        for (let index = 0; index < trainList.length; index++) {
+          const element = trainList[index];
+          updateTrainDisplay(element);
+        }
+
+      }
 
       var train = {
         id: "",
         name: "",
         destination: "",
         station: "",
-        frequency: '',
+        frequency: "",
+        first_time: "",
         arrival_time: "",
         min_remain: "",
         date_entered: ""
       };
+
+      function TrainObj(id, name, destination, station, frequency, first_time, arrival_time, min_remain, date_entered) {
+        this.id = id;
+        this.name = name;
+        this.destination = destination;
+        this.station = station;
+        this.frequency = frequency;
+        this.first_time = first_time;
+        this.arrival_time = arrival_time;
+        this.min_remain = min_remain;
+        this.date_entered = date_entered;
+      };
+
+      var trainList = [];
       var tlist = $("#train-list");
       tlist.empty();
 
@@ -115,6 +140,7 @@
         var id_local = "";
         console.log("child_removed=" + childSnapshot.val());
         console.log(id_local = childSnapshot.val().id);
+        removeList(train, id_local);
         var rowid = $("#" + id_local + "-row");
         rowid.remove();
         // Handle the errors
@@ -131,7 +157,7 @@
       //   $("#comment-display").text(snapshot.val().comment);
       // });
 
-      
+
 
       function ctime() {
         // Current Time
@@ -146,6 +172,7 @@
 
         var e = "";
         timeCalc(train);
+        add2List(train);
 
         e = $("#" + train.id);
         e.text(train.id);
@@ -167,6 +194,7 @@
       function addTrain2display(train) {
 
         timeCalc(train);
+        add2List(train);
 
         tr = $("<tr>");
         tr.attr("id", train.id + "-row");
@@ -274,3 +302,46 @@
         console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"));
         train.arrival_time = moment(nextTrain).format("hh:mm A");
       }
+
+      function add2List(train) {
+        let found = false;
+        let trainObj = "";
+        for (let index = 0; index < trainList.length; index++) {
+          let element = trainList[index];
+          if (element.id === train.id) {
+            // update existing item;
+            found = true;
+            element.name = train.name;
+            element.station = train.station;
+            element.destination = train.destination;
+            element.first_time = train.first_time;
+            element.arrival_time = train.arrival_time;
+            element.frequency = train.frequency;
+            element.min_remain = train.min_remain;
+          }
+        }
+        if (!found) {
+
+          // function  trainObj (id, name, destination, station, frequency, first_time, arrival_time, min_remain, date_entered ) {
+
+
+          trainObj = new TrainObj(train.id, train.name,
+            train.destination, train.station, train.frequency, train.first_time,
+            train.arrival_time, train.min_remain, train.date_entered)
+          trainList.push(trainObj);
+        }
+      };
+
+      function removeList(train, train_id) {
+        let found = false;
+        for (let index = 0; index < trainList.length; index++) {
+          let element = trainList[index];
+          if (element.id === train_id) {
+            // update existing item;
+            found = true;
+            trainList.splice(index, 1);
+            // break;
+          }
+        }
+        return found;
+      };
