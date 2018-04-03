@@ -22,8 +22,8 @@
   <div class="container border border-primary bg-dark rounded">
     <div class="row b-2">
       <div class="col-12">
-        <div class="card bg-info m-2">
-          <div class="card-body text-center">
+        <div class="card bg-primary m-1">
+          <div class="card-body text-center text-white">
             <h2>NJ Transit Train Scheduler</h2>
           </div>
         </div>
@@ -36,7 +36,7 @@
       <div class="col-12">
         <div class="card bg-light m-1">
           <h6 class="card-header bg-primary text-white">
-            Current train schedule
+            <span class="text-left">Current train schedule</span> &nbsp; <span id="ctime" class="float-right text-right"></span>
           </h6>
 
           <div class="card  m-1">
@@ -44,11 +44,14 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th scope="col">Train id</th>
                     <th scope="col">Train name</th>
+                    <th scope="col">Station</th>
                     <th scope="col">Destination</th>
                     <th scope="col">Frequency (min)</th>
                     <th scope="col">Next Arrival</th>
                     <th scope="col">Minutes Away</th>
+                    <th scope="col">Remove</th>
                   </tr>
                 </thead>
                 <tbody id="train-list">
@@ -58,6 +61,9 @@
                     <td>3</td>
                     <td>4</td>
                     <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
                   </tr>
                   <tr>
                     <th>1</th>
@@ -65,6 +71,9 @@
                     <td>3</td>
                     <td>4</td>
                     <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                    <td>8</td>
                   </tr>
                 </tbody>
               </table>
@@ -86,8 +95,18 @@
 
             <form>
               <div class="form-group row">
+                <label for="input-id" class="col-2 col-form-label text-right">Train id</label>
+                <input class="col-9 rounded" type="number" id="input-id" placeholder="Enter train id number">
+                <!-- <small id="emailHelp" class="form-text text-muted">Train Name</small> -->
+              </div>
+              <div class="form-group row">
                 <label for="input-name" class="col-2 col-form-label text-right">Train Name</label>
                 <input class="col-9 rounded" type="text" id="input-name" placeholder="Enter train name">
+                <!-- <small id="emailHelp" class="form-text text-muted">Train Name</small> -->
+              </div>
+              <div class="form-group row">
+                <label for="input-station" class="col-2 col-form-label text-right">Station</label>
+                <input class="col-9 rounded" type="text" id="input-station" placeholder="Enter station name">
                 <!-- <small id="emailHelp" class="form-text text-muted">Train Name</small> -->
               </div>
               <div class="form-group row">
@@ -95,12 +114,12 @@
                 <input class="col-9 rounded" type="text" id="input-destination" placeholder="Enter Destination">
               </div>
               <div class="form-group row">
-                <label for="input-time" class="col-2 col-form-label  text-right">First Train Time</label>
-                <input class="col-9 rounded" type="text" id="input-time" placeholder="Enter First Train Time -- in military time">
+                <label for="input-time" class="col-2 col-form-label  text-right">Departure Time</label>
+                <input class="col-9 rounded" type="time" id="input-time" placeholder="Enter First Train Time">
               </div>
               <div class="form-group row">
                 <label for="input-frequency" class="col-2 col-form-label  text-right">Frequency</label>
-                <input class="col-9 rounded" type="text" id="input-frequency" placeholder="Enter Frequency -- in minutes">
+                <input class="col-9 rounded" type="number" id="input-frequency" placeholder="Enter Frequency -- in minutes">
               </div>
               <!-- <div class="form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -126,6 +145,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+  <script src="./assets/scripts/moment.js"></script>
   <script src="./assets/scripts/firebase.js"></script>
 </body>
 
