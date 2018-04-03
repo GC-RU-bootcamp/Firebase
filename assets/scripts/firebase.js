@@ -9,6 +9,9 @@
       };
       firebase.initializeApp(config);
 
+      ctime();
+      setInterval(ctime, 1000*10);
+
       var train = {
         id: "",
         name: "",
@@ -128,7 +131,7 @@
       //   $("#comment-display").text(snapshot.val().comment);
       // });
 
-      ctime();
+      
 
       function ctime() {
         // Current Time
